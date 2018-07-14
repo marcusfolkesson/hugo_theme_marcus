@@ -1,76 +1,42 @@
 {{ partial "header.html" . }}
 
-		<div id="content" class="site-content">
+<div id="content" class="site-content">
 
-<div id="primary" class="content-area">
-	<main id="main" class="site-main" role="main">
-		
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
 		{{ $paginator := .Paginate (where .Data.Pages "Type" "blog") }}
-                {{ range .Paginator.Pages }}
+		{{ range .Paginator.Pages }}
 		<article class="post">
 			<h2 class="entry-title">
 				<a href="{{ .Permalink }}" rel="bookmark" data-slimstat="5">{{ .Title }}</a>
 
 			</h2>
-		<aside class="entry-meta lined-title">
-		<time class="entry-date published"  class="content-subhead">{{ .Date.Format "02 Jan 2006, 15:04" }}</time>
-		</aside>
+			<aside class="entry-meta lined-title">
+				<time class="entry-date published"  class="content-subhead">{{ .Date.Format "02 Jan 2006, 15:04" }}</time>
+			</aside>
 
-		<div class="entry-content">
-		    <div class="document">
-			{{ .Content }}
-		    </div>
-		</div>
+			<div class="entry-content">
+				<div class="document">
+					{{ .Content }}
+				</div>
+			</div>
 		</article>
 		{{ end }}
 
-	</main><!-- .site-main -->
+		</main><!-- .site-main -->
 
-	
-</div><!-- .content-area -->
-        <aside id="blog-archives" class="sidebar widget-area">
-    {{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
-        {{ if gt (len $taxonomy) 0 }}
-<section class="widget widget_categories">
-	<h2 class="widget-title lined-title"><span>{{ humanize $taxonomyname}}</span></h2>
-	<ul>
-            {{ range $name, $value := $taxonomy }}
-	    <li class="cat-item"><a class="badge badge-primary" href="{{ printf "/%s/" $taxonomyname | relLangURL }}{{ $name | urlize }}">{{ humanize $name }} ({{ len $value }})</a></li>
-            {{ end }}
-	</ul>
-</section>
-        {{ end }}
-    {{ end }}
 
-		</section>
-	</aside><!-- .sidebar .widget-area -->
+	</div><!-- .content-area -->
+	{{ partial "sidebar.html" . }}
+</div><!-- .site-content -->
 
-		</div><!-- .site-content -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+	{{ partial "footer.html" . }}
 
-		<footer id="colophon" class="site-footer" role="contentinfo">
-            {{ partial "footer.html" . }}
-			
-		</footer><!-- .site-footer -->
-	</div><!-- .site-inner -->
+</footer><!-- .site-footer -->
+</div><!-- .site-inner -->
 </div><!-- .site -->
-
-<script type='text/javascript' src='http://www.marcusfolkesson.se/wp-content/themes/almia/js/skip-link-focus-fix.js?ver=20160412'></script>
-<script type='text/javascript' src='http://www.marcusfolkesson.se/wp-content/themes/almia/js/jquery.flexslider-min.js?ver=2.6.1'></script>
-<script type='text/javascript' src='http://www.marcusfolkesson.se/wp-content/themes/almia/js/jquery.fitvids.js?ver=20160818'></script>
-<script type='text/javascript'>
-/* <![CDATA[ */
-var screenReaderText = {"expand":"expand child menu","collapse":"collapse child menu"};
-var sliderOptions = {"slideshowSpeed":"5000","prevText":"Previous","nextText":"Next","itemWidth":"300","minItems":"2","maxItems":"3","sidebarClass":"","itemMargin":"10"};
-/* ]]> */
-</script>
-<script type='text/javascript' src='http://www.marcusfolkesson.se/wp-content/themes/almia/js/functions.js?ver=20160412'></script>
-<script type='text/javascript'>
-/* <![CDATA[ */
-var SlimStatParams = {"ajaxurl":"http:\/\/www.marcusfolkesson.se\/wp-admin\/admin-ajax.php","extensions_to_track":"pdf,doc,xls,zip","outbound_classes_rel_href_to_not_track":"noslimstat,ab-item","ci":"YTozOntzOjEyOiJjb250ZW50X3R5cGUiO3M6NDoicGFnZSI7czoxMDoiY29udGVudF9pZCI7aTo3O3M6NjoiYXV0aG9yIjtzOjY6Im1hcmN1cyI7fQ==.3adf9baadec4ec1619dfda8e2f37a86f"};
-/* ]]> */
-</script>
-<script type='text/javascript' src='http://cdn.jsdelivr.net/wp/wp-slimstat/tags/4.7.2.2/wp-slimstat.min.js'></script>
-<script type='text/javascript' src='http://www.marcusfolkesson.se/wp-includes/js/wp-embed.min.js?ver=4.8.2'></script>
 </body>
 </html>
 

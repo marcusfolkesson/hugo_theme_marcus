@@ -1,0 +1,18 @@
+
+<aside id="blog-archives" class="sidebar widget-area">
+	{{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
+	{{ if gt (len $taxonomy) 0 }}
+	<section class="widget widget_categories">
+		<h2 class="widget-title lined-title"><span>{{ humanize $taxonomyname}}</span></h2>
+		<ul>
+			{{ range $name, $value := $taxonomy }}
+			<li class="cat-item"><a class="badge badge-primary" href="{{ printf "/%s/" $taxonomyname | relLangURL }}{{ $name | urlize }}">{{ humanize $name }} ({{ len $value }})</a></li>
+			{{ end }}
+		</ul>
+	</section>
+	{{ end }}
+	{{ end }}
+
+	</section>
+</aside><!-- .sidebar .widget-area -->
+
