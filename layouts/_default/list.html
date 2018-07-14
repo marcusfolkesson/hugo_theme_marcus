@@ -11,9 +11,11 @@
 				<a href="{{ .Permalink }}" rel="bookmark" data-slimstat="5">{{ .Title }}</a>
 
 			</h2>
+			{{ if not .Date.IsZero }}
 			<aside class="entry-meta lined-title">
 				<time class="entry-date published"  class="content-subhead">{{ .Date.Format "02 Jan 2006, 15:04" }}</time>
 			</aside>
+			{{ end }}
 
 			<div class="entry-content">
 				<div class="document">
