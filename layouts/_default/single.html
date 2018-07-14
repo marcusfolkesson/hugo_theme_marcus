@@ -1,0 +1,38 @@
+{{ partial "header.html" . }}
+
+<div id="content" class="site-content">
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		<article class="post">
+			<h2 class="entry-title">
+				<a href="{{ .Permalink }}" rel="bookmark" data-slimstat="5">{{ .Title }}</a>
+
+			</h2>
+			<aside class="entry-meta lined-title">
+				<time class="entry-date published"  class="content-subhead">{{ .Date.Format "02 Jan 2006, 15:04" }}</time>
+			</aside>
+
+			<div class="entry-content">
+				<div class="document">
+					{{ .Content }}
+				</div>
+			</div>
+		</article>
+
+		</main><!-- .site-main -->
+
+
+	</div><!-- .content-area -->
+	{{ partial "sidebar.html" . }}
+</div><!-- .site-content -->
+
+<footer id="colophon" class="site-footer" role="contentinfo">
+	{{ partial "footer.html" . }}
+</footer><!-- .site-footer -->
+</div><!-- .site-inner -->
+</div><!-- .site -->
+</body>
+</html>
+
