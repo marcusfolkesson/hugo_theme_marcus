@@ -18,9 +18,9 @@
 			{{ .Content }}
 			<div class="entry-content">
 				<div class="document">
-					{{ range (.Site.RegularPages.GroupByDate "2006 Jan") }}
+					{{ range (.Site.RegularPages.GroupByDate "2006") }}
 					{{ if len (where .Pages "Type" $.Page.Params.Section) }}
-					<h3>{{ .Key }}</h3>
+					<h2>{{ .Key }}</h2>
 					<section class="widget_archive widget">
 					<ul>
 						{{ range (where .Pages "Type" $.Page.Params.Section) }}
