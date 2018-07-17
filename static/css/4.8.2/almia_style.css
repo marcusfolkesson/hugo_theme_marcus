@@ -303,6 +303,10 @@ textarea {
 	line-height: 1.75;
 }
 
+img {
+	  margin-bottom: 50px;
+}
+
 h1,
 h2,
 h3,
@@ -3347,10 +3351,6 @@ p > video {
 	.comment-list + .comment-respond,
 	.comment-navigation + .comment-respond {
 		padding-top: 3.5em;
-	}
-
-	.widget {
-		padding: 50px; 
 	}
 
 	.pagination {
