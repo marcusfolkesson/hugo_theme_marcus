@@ -3,11 +3,12 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Home - {{ .Site.Title }}</title>
-
+		<title>{{ .Title }} - {{ .Site.Title }}</title>
 		<link rel='stylesheet' id='almia-fonts-css'  href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic|Old+Standard+TT:400,400italic,700&#038;subset=latin,latin-ext' type='text/css' media='all' />
-		<link rel='stylesheet' id='genericons-css'  href='{{ .Site.BaseURL }}/css/3.4.1/genericons.css' type='text/css' media='all' />
-		<link rel='stylesheet' id='genericons-css'  href='{{ .Site.BaseURL }}/css/4.8.2/almia_style.css' type='text/css' media='all' />
+		{{- $cs1 := resources.Get "css/genericons.css" -}}
+		{{- $cs2 := resources.Get "css/almia_style.css" -}}
+		{{- $styles := slice $cs1 $cs2 | resources.Concat "css/minified.css"| minify | fingerprint -}}
+		<link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
 	</head>
 
 	<body class="home page-template-default page page-id-7">
